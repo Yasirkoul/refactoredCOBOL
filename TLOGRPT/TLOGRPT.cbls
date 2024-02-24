@@ -1,0 +1,149 @@
+{
+  "id": "4e6aa7dd-68e2-42df-b24b-793114988c3c",
+  "name": "",
+  "project": "$clientCOBOL_055bc77d-8a82-4af6-ba5d-32f7cdb3ff60",
+  "codeBlocksSequence": [
+    "Program:COBOL:TLOGRPT 147 170",
+    "Program:COBOL:TLOGRPT 171 183",
+    "Program:COBOL:TLOGRPT 184 198",
+    "Program:COBOL:TLOGRPT 199 204",
+    "Program:COBOL:TLOGRPT 205 214"
+  ],
+  "codeBlocks": {
+    "Program:COBOL:TLOGRPT 147 170": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:13d4d9f44ff62115145e0f61248e21c3ed6a4e4b38a51f812a009c9796b97691f3b0fe5f5dee1dc9148a07f2467ba87b4d8c23042ce480ae109481f88d1d5c4581b495a27cd8885fde679ad4a441f217daa62d05f5aa14a6",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 147,
+      "stmtEndLineNumber": 170,
+      "code": "       MAIN-PROGRAM.\r\n           MOVE FUNCTION CURRENT-DATE TO WS-CURRENT-DATE.\r\n           MOVE WS-YEAR TO DT-YEAR.\r\n           MOVE WS-MONTH TO DT-MONTH.\r\n           MOVE WS-DAY TO DT-DAY.\r\n           OPEN INPUT INFILE\r\n                OUTPUT OUTFILE.\r\n           READ INFILE\r\n               AT END\r\n                   MOVE 'Y' TO TLOG-EOF-SWITCH\r\n           END-READ.\r\n           PERFORM ADD-PARA\r\n               UNTIL TLOG-EOF-SWITCH = 'Y'\r\n           PERFORM EVALUATE-PARA.\r\n           DISPLAY WS-ID-CAT.\r\n           PERFORM PRINT-TITLE\r\n           PERFORM DATA-LOOP\r\n               UNTIL TLOG-EOF-SWITCH = 'Y'\r\n           CLOSE INFILE\r\n                 OUTFILE.\r\n           DISPLAY TEST-RECORD-ID.\r\n           DISPLAY WS-ID-SUM.\r\n           CALL \"TLOGCALLED\" USING BY CONTENT TEST-RECORD-ID.\r\n           STOP RUN.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 147 170",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    },
+    "Program:COBOL:TLOGRPT 171 183": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:a75f300636e7d5008e5c316b70ec6fe3693ace828ae066a775ab6b00f468a88b6709d4d2c74da4723d7c8782abfb6b1ec66b93f9289210253b0d7ffd7be4a7ae3d5106fcb5e31d229ce2f0dc5462a007bbdaa3ebfb360d44",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 171,
+      "stmtEndLineNumber": 183,
+      "code": "       PRINT-TITLE.\r\n           MOVE HEADER-1 TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           MOVE HEADER-2 TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           MOVE DATE-LINE TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           MOVE SPACES TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           MOVE HEADER-3 TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           MOVE HEADER-4 TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 171 183",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    },
+    "Program:COBOL:TLOGRPT 184 198": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:8c79cb1887f7ceeee1eb7245d998a6de42cad353443dec40447de2dc81f867880bf1cb770b338004daed1402c7aba5af578f1e3036a3bc70a63fb0a90b70b25df09c606c7e9f13ad8a26f3e847d4979309ab0dc9a808bb0b",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 184,
+      "stmtEndLineNumber": 198,
+      "code": "       DATA-LOOP.\r\n           MOVE TEST-RECORD-ID TO ID-OUT.\r\n           MOVE TEST-YEAR TO YEAR-OUT.\r\n           MOVE TEST-MONTH TO MONTH-OUT.\r\n           MOVE TEST-DAY TO DAY-OUT.\r\n           MOVE TEST-CATEGORY TO CATEGORY-OUT.\r\n           MOVE TEST-GROUP TO GROUP-OUT.\r\n           MOVE TEST-AUTHOR TO AUTHOR-OUT.\r\n           MOVE TEST-SUBJECT TO SUBJECT-OUT.\r\n           MOVE OUT-RECORD TO OUTFILE-RECORD.\r\n           WRITE OUTFILE-RECORD.\r\n           READ INFILE\r\n               AT END\r\n                   MOVE 'Y' TO TLOG-EOF-SWITCH\r\n           END-READ.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 184 198",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    },
+    "Program:COBOL:TLOGRPT 199 204": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:cfc9ed3bb948045f9d0abee94047fa231b49dc6d804833cf03471e205e309840404edebc605b61676f89378ebf93f6eeb2f4f20acf3ae6542001df84925626c1fc7fb238246003b7f1b619576c144b6f728bc1aac109f08a",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 199,
+      "stmtEndLineNumber": 204,
+      "code": "       ADD-PARA.\r\n           ADD TEST-RECORD-ID TO WS-ID-SUM.\r\n           READ INFILE\r\n               AT END\r\n                   MOVE 'Y' TO TLOG-EOF-SWITCH\r\n           END-READ.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 199 204",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    },
+    "Program:COBOL:TLOGRPT 205 214": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:56990e82606a411b2a54cce7f39ef95e1c5b5e71debf0f62ecad6f24f6e3524c653c97ecf306fe571df69f756eb2d8c70b99248c8303f82dc34fea24cdbd17215f1a3c0a5ca10fbc3eb9ef01344e1181580637b3982669e8",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 205,
+      "stmtEndLineNumber": 214,
+      "code": "       EVALUATE-PARA.\r\n           MOVE 999999 TO WS-ID-FIRST\r\n           EVALUATE  TRUE\r\n           WHEN WS-ID-SUM GREATER THAN WS-ID-FIRST\r\n                        MOVE \"ID SUM MORE THAN ALL 9'S\" TO WS-ID-CAT\r\n           WHEN WS-ID-SUM EQUAL TO WS-ID-FIRST\r\n                        MOVE \"ID SUM EQUAL TO ALL 9'S\" TO WS-ID-CAT\r\n           WHEN WS-ID-SUM LESS THAN WS-ID-FIRST\r\n                        MOVE \"ID SUM LESS THAN ALL 9'S\" TO WS-ID-CAT\r\n           END-EVALUATE.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 205 214",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    }
+  }
+}

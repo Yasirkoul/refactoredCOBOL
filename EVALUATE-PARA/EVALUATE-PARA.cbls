@@ -1,0 +1,37 @@
+{
+  "id": "27d8a930-28c3-436e-91bb-b5ee77feb1c9",
+  "name": "",
+  "project": "$clientCOBOL_055bc77d-8a82-4af6-ba5d-32f7cdb3ff60",
+  "codeBlocksSequence": [
+    "Program:COBOL:TLOGRPT 205 214"
+  ],
+  "codeBlocks": {
+    "Program:COBOL:TLOGRPT 205 214": {
+      "program": {
+        "id": "Program:COBOL:TLOGRPT",
+        "name": "Program:COBOL:TLOGRPT",
+        "path": "enc:06d6c5b0a1a07860245ca9b72efbdb64ff05590ff001a3e5f75d5402405ae245ab4bc24b594b275c0a836352e2b277d63aa87511e81561c6589b400b36f94854d36a556f3b6cb6bab727fc07b9e84699c33fe942326309d6",
+        "addedByUser": false
+      },
+      "stmtStartLineNumber": 205,
+      "stmtEndLineNumber": 214,
+      "code": "       EVALUATE-PARA.\r\n           MOVE 999999 TO WS-ID-FIRST\r\n           EVALUATE  TRUE\r\n           WHEN WS-ID-SUM GREATER THAN WS-ID-FIRST\r\n                        MOVE \"ID SUM MORE THAN ALL 9'S\" TO WS-ID-CAT\r\n           WHEN WS-ID-SUM EQUAL TO WS-ID-FIRST\r\n                        MOVE \"ID SUM EQUAL TO ALL 9'S\" TO WS-ID-CAT\r\n           WHEN WS-ID-SUM LESS THAN WS-ID-FIRST\r\n                        MOVE \"ID SUM LESS THAN ALL 9'S\" TO WS-ID-CAT\r\n           END-EVALUATE.",
+      "committed": false,
+      "uniqueId": "Program:COBOL:TLOGRPT 205 214",
+      "tags": [
+        "paragraph"
+      ],
+      "metadata": {
+        "copybooks": [
+          {
+            "uniqueId": "Copybook:TLOG.cpy",
+            "path": "enc:15cbb7ac0e28b8258b1a2825549f207a8a03adc09e5a89a7b0d4b45edbb54483e5306cd1fc584d9872f060585852b58f517fb3d31284f389462b25b769ea762825ffc05551bcac34aab09eb2e2515c05d28ed910a8cc7c1e"
+          }
+        ],
+        "programs": [
+          "Program:COBOL:TLOGRPT"
+        ]
+      }
+    }
+  }
+}
